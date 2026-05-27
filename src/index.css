@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
+
+:root {
+  --main: #004e66;
+  --sub: #e1eef6;
+  --key1: #f24822;
+  --key2: #fcbe32;
+  --gry: #f8f9fa;
+
+  --sans: "Noto Sans JP", sans-serif;
+}
+
+#root {
+  background-color: var(--sub);
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  font-family: var(--sans);
+  padding: 50px 100px;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+}
+
+.m-box {
+  background-color: #fff;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  width: 650px;
+  margin: 0 auto;
+  border-radius: 20px;
+  padding: 32px;
+}
+
+.m-head-ttl {
+  text-align: center;
+  color: var(--main);
+  font-weight: 900;
+  font-size: 36px;
+  margin: 0 0 32px;
+}
+
+.m-sort {
+  display: flex;
+  align-items: center;
+  gap: 0 10px;
+  margin-top: 24px;
+}
+
+.m-sort__btn {
+  background-color: var(--sub);
+  color: var(--main);
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 16px;
+}
+
+.m-add-form {
+  display: flex;
+  gap: 0 10px;
+}
+
+.m-add-form__input-box {
+  position: relative;
+  width: 550px;
+}
+
+.m-add-form__input {
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--main);
+  outline-color: var(--key1);
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 16px;
+  width: calc(550px - (16px * 2));
+}
+
+.m-add-form__error {
+  position: absolute;
+  bottom: -17px;
+  left: 3px;
+  color: var(--key1);
+  font-size: 12px;
+}
+
+.m-add-form__btn {
+  background-color: var(--key1);
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 0 5px;
+}
+
+.m-task-list {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px 0;
+}
+
+.m-task-item {
+  background-color: var(--gry);
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0 10px;
+  position: relative;
+}
+
+.m-task-item__check {
+  appearance: none;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--main);
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  position: relative;
+  &::before {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    display: block;
+    width: 90%;
+    height: 90%;
+    content: "";
+    mask-image: url("./assets/icn_check.svg");
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    background-color: #fff;
+    opacity: 0;
+  }
+}
+
+.m-task-item__check:checked {
+  background-color: var(--key1);
+  border-color: var(--key1);
+  &::before {
+    opacity: 1;
+  }
+}
+
+.m-task-item__input {
+  outline-color: var(--key1);
+  border-color: transparent;
+  background-color: transparent;
+  font-weight: 700;
+  padding: 8px 16px;
+  color: var(--main);
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.m-task-item__input:disabled {
+  opacity: 0.7;
+  width: 90%;
+}
+
+.m-task-item__title {
+  flex: 1;
+}
+
+.m-task-item__date {
+  font-size: 13px;
+  opacity: 0.5;
+  display: block;
+  margin-left: 16px;
+}
+
+.m-task-item__edit-btn {
+  width: 24px;
+  height: 24px;
+  color: var(--main);
+}
+
+.m-task-item__save-btn {
+  width: 24px;
+  height: 24px;
+  color: var(--key2);
+}
+
+.m-task-item__delete-btn {
+  width: 24px;
+  height: 24px;
+  color: var(--key1);
+}
+
+.m-task-memo-accordion {
+  width: 24px;
+  height: 24px;
+  transition: rotate 0.2s ease;
+}
+
+.m-task-memo-accordion.is-open {
+  rotate: 180deg;
+  margin-bottom: 8px;
+}
+
+.m-task-memo {
+  width: 100%;
+}
+
+.m-task-memo__txt {
+  appearance: none;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--main);
+  outline-color: var(--key1);
+  background-color: #fff;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 12px 16px;
+  font-size: 16px;
+  color: var(--main);
+  width: calc(100% - 32px);
+}
+
+.m-task__total {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 16px;
+  span {
+    color: var(--main);
+    font-weight: 700;
+    padding: 0 3px;
+    font-size: 18px;
+  }
+}
